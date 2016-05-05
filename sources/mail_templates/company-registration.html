@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style type="text/css">
+	h1 {
+		font-family: Verdana;
+		font-size: 18px;
+		color: #473E53;
+		font-weight: bold;
+		margin: 0;
+		padding: 0;
+	}
+	p {
+		font-family: Tahoma;
+		font-size: 16px;
+		color: #473E53;
+		margin: 0;
+		padding: 25px 0px 0px 0px;
+	}
+	p.fs14 { font-size: 14px; }
+	a {
+		font-size: 14px;
+		color: #8D4682;
+		text-decoration: underline;
+	}
+	a:hover { text-decoration: none; }
+	img {
+		margin-left: 10px;
+		vertical-align: middle;
+		border: none;
+	}
+</style>
+
+</head>
+<body>
+	<h1>Здравствуйте, <?= $fio  ?>! <a href="http://www.jobmatcher.ru"><img src="<?= $site_url?>public/images/jobmatcher.gif" alt="JobMatcher" /></a></h1>
+	<p>Компания <?= $company?> зарегистрирована на сайте на сайте <a href="http://www.jobmatcher.ru">www.jobmatcher.ru</a><br/>Ваш клиентский номер <b><?= $id?></b><br/>
+	Для входа в личный кабинет работодателя используйте:<br/>Логин: <b><?= $login?></b><br/>Пароль: <b><?= $passwd?></b><br/>
+	Ваш псевдоним (nickname) для форума: <b><?= $nickname?></b><br/>
+	<a href="<?= $site_url?>company-account.html">Перейти в личный кабинет</a><br/>
+	Благодарим Вас за регистрацию и желаем успешной работы!</p>
+	<p class="fs14">
+		С уважением,<br /> 
+		Служба поддержки <a href="http://www.jobmatcher.ru">www.jobmatcher.ru</a><br />
+		Тел: 8(495)222-33-22<br />
+		Эл. почта: <a href="mailto:support@jobmatcher.ru">support@jobmatcher.ru</a>
+	</p>
+</body>
+</html>

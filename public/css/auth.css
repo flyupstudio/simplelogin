@@ -1,0 +1,170 @@
+HTML {
+	height: 100%;
+	background:#6485C0 url("../images/login/bg.jpg") repeat-x top left;
+}
+IMG{
+	border: none;
+}
+BODY {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	position: relative;
+	top:0px;
+	left: 0px;
+	background: url("../images/login/body-bg.png") no-repeat center top;
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+}
+LABEL{
+	cursor: pointer;
+}
+.CreatorLogo{
+	position: absolute;
+	bottom: 20px;
+	left: 20px;
+}
+
+.login-container {
+	height: 162px;
+	width: 402px;
+	margin: -110px 0 0 -201px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background: url("../images/login/form.png") repeat left top;
+}
+
+
+
+.login-container .lc-content {
+	float: left;
+	width: 100%;
+	height: 100%;
+	
+}
+
+.login-container.lc-error .lc-content {
+	background: url("../images/login/no-enter.png") no-repeat 25px 55px;
+}
+
+.login-container .login-form {
+	float: right;
+	padding: 0px 20px 0 0;
+}
+.login-container .login-form.error{
+	float: left;
+	padding-left: 100px;
+}
+
+.login-container .login-form TABLE {
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+}
+
+.login-container .login-form H1 {
+	font-size: 16px;
+	font-weight: bold;
+	color: #333333;
+	margin: 0 0 0;
+	padding:15px 0 0 0px;
+}
+
+.login-container.lc-error .login-form H1 {
+	
+}
+
+.login-container .login-form FORM {
+	margin: 0;
+	padding: 0;
+}
+
+.login-container .login-form LABEL {
+	font-size: 11px;
+	font-weight: bold;
+	margin: 0 12px 0 0;
+}
+.login-container .login-form TD{
+	padding: 2px 0px;
+}
+.login-container .login-form INPUT.input-text {
+	width: 165px;
+	background: #CDD7E4;
+	padding: 3px 0;
+	border: 1px solid #5473A9;
+}
+
+.login-container .login-form INPUT.selected{
+	background: #F1F4F8;
+	padding: 3px 0;
+	border: 1px solid #FF6701;
+	width: 165px;
+}
+
+.login-container .login-form BUTTON {
+	/*
+margin: 15px 0 0 0;
+*/
+	padding: 3px 0 0px 0;
+	height: 27px;
+	border: 1px solid #3b5582;
+	
+	width: 91px;
+	color: #000000;
+	font-weight: bold;
+	text-align: center;
+	font-size: 11px;
+	cursor: pointer;
+	float: right;
+	
+	-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: #666 0px 2px 3px;
+-moz-box-shadow: #666 0px 2px 3px;
+box-shadow: #666 0px 2px 3px;
+background: #5273ac;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#5273ac), to(#95abcc));
+background: -webkit-linear-gradient(#5273ac, #95abcc);
+background: -moz-linear-gradient(#5273ac, #95abcc);
+background: -ms-linear-gradient(#5273ac, #95abcc);
+background: -o-linear-gradient(#5273ac, #95abcc);
+background: linear-gradient(#5273ac, #95abcc);
+-pie-background: linear-gradient(#5273ac, #95abcc);
+behavior: url(/pie/PIE.htc);
+}
+
+.login-container .login-form .check {
+	width: auto;
+	cursor: pointer;
+	margin:0px;
+}
+
+.login-container .login-form BUTTON:hover {
+	-webkit-border-radius: 4px;
+-moz-border-radius: 4px;
+border-radius: 4px;
+-webkit-box-shadow: #666 0px 2px 3px;
+-moz-box-shadow: #666 0px 2px 3px;
+box-shadow: #666 0px 2px 3px;
+background: #95abcc;
+background: -webkit-gradient(linear, 0 0, 0 bottom, from(#95abcc), to(#5273ac));
+background: -webkit-linear-gradient(#95abcc, #5273ac);
+background: -moz-linear-gradient(#95abcc, #5273ac);
+background: -ms-linear-gradient(#95abcc, #5273ac);
+background: -o-linear-gradient(#95abcc, #5273ac);
+background: linear-gradient(#95abcc, #5273ac);
+-pie-background: linear-gradient(#95abcc, #5273ac);
+behavior: url(/pie/PIE.htc);
+}
+
+.login-container .login-form .error {
+	font-size: 11px;
+	font-weight: bold;
+	color: #A60004;
+	padding: 0;
+	vertical-align: bottom;
+}
+
+.login-container .login-form .error P {
+	margin: 0 0 0 -6px;
+	padding: 0;
+}

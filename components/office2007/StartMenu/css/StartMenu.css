@@ -1,0 +1,87 @@
+A.btn-menu {
+	float: left;
+	-moz-outline: none;
+	background: url("../images/btn-menu.gif") no-repeat left top;
+}
+
+.start-menu {
+	position: absolute;
+	top: 24px;
+	left: 0px;
+	z-index: 100;
+	border: 1px solid #868686;
+	background: #FFFFFF;
+	
+	display: none;
+}
+
+.start-menu UL {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 200px;
+}
+
+.start-menu UL LI {
+	float: left;
+	width: 100%;
+}
+
+.start-menu UL LI A {
+	display: block;
+	text-decoration: none;
+	float: left;
+	width: 100%;
+	-moz-outline: none;
+}
+
+.start-menu UL LI A:hover {
+	background: #E2E5EE url("../images/start-menu/white-pixel.gif") repeat-y right top;
+}
+
+.start-menu UL LI A SPAN {
+	cursor: pointer;
+	display: block;
+	height: 25px;
+}
+
+.start-menu UL LI A SPAN.sm-title {
+	font-size: 10px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #204D9F;
+	float: left;
+	white-space: nowrap;
+}
+
+.start-menu UL LI A SPAN.sm-title SPAN.smt-container {
+	height: auto;
+	margin: 6px 0 0 7px;
+}
+
+.start-menu UL LI A SPAN.sm-icon {
+	float: left;
+	width: 36px;
+	text-align: center;
+	background: #FFFFFF url("../images/bg.gif") repeat-y left top;
+}
+
+.start-menu UL LI A SPAN.sm-icon SPAN {
+	width: 100%;
+}
+
+.start-menu UL LI A .sm-icon.close SPAN {
+	background: url("../images/close.gif") no-repeat center center;
+}
+
+.start-menu UL LI A .sm-icon.module SPAN {
+	background: url("../images/module.gif") no-repeat center center;
+}
+
+.start-menu UL LI A .sm-icon.user-add SPAN {
+	background: url("../images/user-add.gif") no-repeat center center;
+}
+
+.start-menu UL LI A .sm-icon.user-remove SPAN {
+	background: url("../images/user-remove.gif") no-repeat center center;
+}

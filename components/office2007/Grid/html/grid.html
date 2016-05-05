@@ -1,0 +1,93 @@
+<div class="Grid">
+	<? if(!$this->Data['noform']) { ?>
+		<form action="" method="post" id="MultiplyConfirmForm">
+	<? } ?>	
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<? $count = 0;?>
+				<? if($this->Data['options']['multiply']){?>
+				<th style="width: 20px;">
+					<input type="checkbox" class="MultiplyAllChecks" /><?$count++?>
+				</th>
+				<?}?>
+				<? if($this->Data['options']['row_numbers']){ ?>
+					<th>№</th><?$count++?>
+				<? } ?>
+				<? foreach($this->Data['titles'] as $title){ ?>
+					<th><?= $title ?></th>
+					<?$count++?>
+				<? } ?>
+				<? if($this->Data['options']['controls']){ ?>
+					<th>Действие</th><?$count++?>
+				<? } ?>
+			</tr>
+			
+			<? 
+				$i = 0;
+			foreach($this->Data['rows'] as $id => $row)
+			{
+				$i++; 
+		?>
+				
+				<tr class="<?=$this->Data['rows5'][$id]?'is_new':''?>">
+					<? if($this->Data['options']['multiply']){?>
+						<td>
+							<input type="checkbox" class="MultiplyOneItemChecks" name="ID[]" value="<?=$id?>" />
+						</td>
+					<?}?>
+					<? if($this->Data['options']['row_numbers']){ ?>
+						<td class="min-width ta-center"><?= $i ?></td>
+					<? } ?>
+					<? foreach($row as $cell){ ?>
+						<td><?= $cell ?></td>
+					<? } ?>
+					<? if($this->Data['options']['controls']){ ?>
+						<td class="controls min-width">
+							<? if($this->Data['options']['controls']['edit']){ ?>
+								<a href="<?= sprintf($this->Data['options']['controls']['edit'], $id) ?>" title="Редактировать"><img src="<?= $this->Src ?>images/edit.gif" alt="Редактировать" /></a>
+							<? } ?>
+							<? if($this->Data['options']['controls']['recover']){ ?>
+								<a href="<?= sprintf($this->Data['options']['controls']['recover'], $id) ?>" title="Восстановить"><img src="<?= $this->Src ?>images/recover.gif" alt="Восстановить" /></a>
+							<? } ?>
+							<? if($this->Data['options']['controls']['remove']){ ?>
+								<a href="<?= sprintf($this->Data['options']['controls']['remove'], $id) ?>" onclick="return DeleteRow()" title="Удалить"><img src="<?= $this->Src ?>images/remove.gif" alt="Удалить" /></a>
+							<? } ?>
+						</td>
+					<? } ?>
+				</tr>
+				
+			<? } ?>
+			
+			
+			<?$count?>
+			<? if($this->Data['options']['multiply']){?>
+				<tr>
+					<th colspan="<?=$count?>">
+						<table cellpadding="2" cellspacing="2">
+							<tr>
+								<td>
+									С отмеченными:
+								</td>
+								<td>
+									<select id="MutliplySelect" name="Event">
+										<option selected>--Действие--</option>
+										<?foreach($this->Data['options']['multiply_events'] as $el => $value){?>
+											<option value="<?=$el?>"><?=$value?></option>
+										<?}?>
+									</select>
+								
+								</td>
+								<td>
+									<input type="submit"  id="ConfirmForm" value="Применить" />
+								</td>
+							</tr>
+						</table>
+					</th>
+				</tr>
+			<?}?>
+			
+		</table>
+	<? if(!$this->Data['noform']) { ?>	
+		</form>
+	<? } ?>
+</div>

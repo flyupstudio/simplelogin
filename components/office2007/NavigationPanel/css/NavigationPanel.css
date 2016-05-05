@@ -1,0 +1,126 @@
+.navigation-container {
+	float: left;
+	width: 207px;
+	background: url("../images/bg.jpg") repeat-x left top;
+	position: relative;
+	top: 0px;
+	left: 0px;
+}
+
+.navigation {
+	background: url("../images/bg.jpg") repeat-x left top;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+.navigation .n-title {
+	height: 24px;
+}
+
+.navigation H1 {
+	font-size: 13px;
+	font-weight: bold;
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	color: #204D89;
+	border-left: 1px solid #FFFFFF;
+	padding: 4px 0 4px 23px;
+}
+
+.navigation A.n-close {
+	display: block;
+	float: right;
+	position: relative;
+	top: 2px;
+	right: 6px;
+}
+
+.navigation .p-search {
+	background: url("../images/search-bg.jpg") repeat-x left top;
+	height: 24px;
+}
+
+.navigation .p-search INPUT.input {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #2B5199;
+	width: 177px;
+	border: 1px solid #809DB9;
+	float: left;
+	position: relative;
+	top: 4px;
+	left: 2px;
+}
+
+.navigation .p-search INPUT.btn {
+	float: right;
+	position: relative;
+	top: 4px;
+	right: 3px;
+}
+
+.np-collapsed-panel {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	display: none;
+}
+
+.np-collapsed-panel .ncp-top {
+	background: #C2DCFF;
+	height: 22px;
+	border-left: 1px solid #FFFFFF;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #6593CF;
+}
+
+.np-collapsed-panel .ncp-top A {
+	display: block;
+	float: right;
+	position: relative;
+	z-index: 1;
+}
+
+.np-collapsed-panel .npc-bottom {
+	background: #C2DCFF url("../images/title.gif") no-repeat center center;
+	border-top: 1px solid #FFFFFF;
+	border-left: 1px solid #FFFFFF;
+}
+
+.navigation .p-menu H2 {
+	font-size: 10px;
+	font-weight: bold;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #2B5199;
+	border-top: 1px solid #FFFFFF;
+	border-bottom: 1px solid #ADD1FF;
+	background: #DFEDFF url("../images/menu-collapsed.gif") no-repeat 189px center;
+	padding: 4px 0 4px 11px;
+	cursor: pointer;
+}
+
+.navigation .p-menu H2.pm-active {
+	background: #8EBBF5 url("../images/menu-expanded.gif") no-repeat 189px center;
+}
+
+.navigation .p-menu .pm-separator {
+	border-bottom: 1px solid #6593CF;
+	font-size: 0px;
+	line-height: 0px;
+}
+
+.navigation .p-menu .pm-sub A {
+	display: block;
+	font-size: 10px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	color: #2B5199;
+	padding: 4px 0 4px 17px;
+	text-decoration: none;
+}
+
+.navigation .p-menu .pm-sub A:hover {
+	color: #D95320;
+	background: #FFE7A2;
+}

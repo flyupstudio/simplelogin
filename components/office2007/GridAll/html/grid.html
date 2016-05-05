@@ -1,0 +1,173 @@
+<? if($this->Data['options']['multiply1']){?>
+<form action="" id="MultiplyConfirmForm" method="post">
+<?}?>
+<div class="Grid">
+	<table cellpadding="0" class="GridTable" cellspacing="0">
+		<tr>
+			<? $count = 0;?>
+			<? if($this->Data['options']['multiply']){?>
+			<th style="width: 20px;">
+				<input type="checkbox" class="MultiplyAllChecks" /><?$count++?>
+			</th>
+			<?}?>
+			<? if($this->Data['options']['row_numbers']){ ?>
+				<th>№</th><?$count++?>
+			<? } ?>
+			<? 	$s = 0;
+				foreach($this->Data['titles'] as $title){ ?>
+				<th style="text-align: center;">
+				
+					<?if($this->Data['options']['sortable'][$s]){?>
+						<a class="down-arrow" style="<?=(isset($_GET['direct']) && $_GET['direct'] != '' && $_GET['direct'] != 'ASC' ) &&( $this->Data['options']['sortable1'][$s] == $_GET['sort']) && $_GET['sort'] != '' ? 'border:1px solid #000; ':''?>" href="<?= $this->Data['options']['sortable'][$s]['down']?>" ><img src="/azone/public/images/arrow-down.gif"></a>
+						<a class="up-arrow" style="<?=(isset($_GET['direct']) && $_GET['direct'] != '' && $_GET['direct'] != 'DESC' ) && ($this->Data['options']['sortable1'][$s] == $_GET['sort']) && $_GET['sort'] != '' ? 'border:1px solid #000; ':''?>" href="<?= $this->Data['options']['sortable'][$s]['up']?>" ><img src="/azone/public/images/arrow-up.gif"></a>
+					<?}?>	
+					
+					<?= $title ?>
+					<?$count++?>
+				</th>
+				<? $s++; ?>
+			<? } ?>
+			<? if($this->Data['options']['sort']){ ?>
+				<th>Сортировка</th><?$count++?>
+			<? } ?>
+			<? if($this->Data['options']['controls']){ ?>
+				<th>Edit/Delete</th><?$count++?>
+			<? } ?>
+		</tr>
+		
+		<? 
+			$i = 0;
+			foreach($this->Data['rows'] as $id => $row)
+			{
+				$i++; 
+		?>
+			
+			<tr  class="<?=$this->Data['rows5'][$id]?'is_new':''?>">
+				<? if($this->Data['options']['multiply']){?>
+					<td class="<?=$i % 2 ? 'row1':''?>">
+						<input type="checkbox" class="MultiplyOneItemChecks" name="ID[]" value="<?=$id?>" />
+					</td>
+				<?}?>
+				<? if($this->Data['options']['row_numbers']){ ?>
+					<td class="min-width ta-center <?=$i % 2 ? 'row1':''?>">
+						<?if($this->Data['options']['page'] > 1){?>
+							<?= $i?>
+						<?}else{?>
+							<?= $i?>
+						<?}?>	
+					</td>
+				<? } ?>
+				<? foreach($row as $cell){ ?>
+					<td class="<?=$i % 2 ? 'row1':''?>"><?= $cell ?></td>
+				<? } ?>
+				
+				<? if($this->Data['options']['sort']){ ?>
+					<td class="min-width ta-center <?=$i % 2 ? 'row1':''?>">
+							<a href="<?= '?Event=SortDown&id='.$id.'&page='.$this->Data['options']['page']?>" title="Вниз"><img src="<?= $this->Src ?>images/down.png" alt="Вниз" /></a>
+							<a href="<?= '?Event=SortUp&id='.$id.'&page='.$this->Data['options']['page']?>" title="Вверх"><img src="<?= $this->Src ?>images/up.png" alt="Вверх" /></a>
+					</td>
+				<? } ?>
+				
+				<? if($this->Data['options']['controls']){ ?>
+					<td class="<?=$i % 2 ? 'row1':''?>" class="controls min-width">
+<table cellpadding="3" style="width: 130px"cellspacing="3">
+<tr>  		
+			<?if($this->Data['events']){?>
+						<td style="width:26px;text-align: center"><div style="width: 26px;"><? if($this->Data['options']['controls']['edit']){ ?>
+							<a href="<?= sprintf($this->Data['options']['controls']['events'], $id) ?>" title="Events"><img src="<?= $this->Src ?>images/events.png" alt="Events" /></a>
+						<? } ?></div></td>
+						<?}?>
+	
+<?if($this->Data['rows5'][$id]){?>
+						<td style="width:26px;text-align: center"><div style="width: 26px;"><? if($this->Data['options']['controls']['email']){ ?>
+							
+							<a style="" href="<?= sprintf($this->Data['options']['controls']['email'], $id) ?>" onclick="window.open('<?= sprintf($this->Data['options']['controls']['email'], $id) ?>','MsgWindow','width=700,height=500,resizable=yes,scrollbars=yes,status=yes' ); return false;" class="deleteBtn" title="Email To"><img src="<?= $this->Src ?>images/email.png" alt="Email To" /></a>
+							
+						<? } ?></div></td>
+						
+						
+						
+						<?}?>
+						<?if($this->Data['rows4'][$id]){?>
+						<td style="width:26px; text-align: center"><div style="width: 26px;"><? if($this->Data['options']['controls']['attach'] && $this->Data['rows4'][$id]){ ?>
+						<span style="margin:0 10px 0 0 ;" class="attachSpan"><img src="<?= $this->Src ?>images/attach.png" />
+							<div class="attach">
+								<?=$this->Data['rows4'][$id]?>
+							</div>
+						</span>
+						<?}else{?>&nbsp;<?}?></div></td>
+						<?}?>
+						<?if($this->Data['rows3'][$id]){?>
+						<td style="width:26px; text-align: center"><div style="width: 26px;"><? if($this->Data['options']['controls']['RM'] && $this->Data['rows3'][$id]){ ?>
+						<a title="Generate file" target="_blank" href="/azone/regattas/?Event=GenerateFile&id=<?=$this->Data['rows3'][$id]?>" style="margin:0 10px 0 0 ;"><img src="<?= $this->Src ?>images/rm.png" /></a>
+						<?}else{?>&nbsp;<?}?></div></td>
+						<?}?>						
+						<?if($this->Data['rows2'][$id]){?>
+						<td style="width:26px; text-align: center"><div style="width: 26px;"><? if($this->Data['options']['controls']['web'] && $this->Data['rows2'][$id]){ ?>
+						<a title="Review Regatta Page" target="_blank" href="<?=$this->Data['rows2'][$id]?>" style="margin:0 10px 0 0 ;"><img src="<?= $this->Src ?>images/page.png" /></a>
+						<?}else{?>&nbsp;<?}?></div></td>
+						<?}?>
+						
+						<?if($this->Data['rows1'][$id]){?>
+						<td style="width:26px;text-align: center"><div style="width: 26px;"><? if($this->Data['options']['controls']['url'] && $this->Data['rows1'][$id]){ ?>
+						<a target="_blank" title="Marks setup" href="<?=$this->Data['rows1'][$id]?>"  style="margin:0 10px 0 0 ;"><img src="<?= $this->Src ?>images/web.png" /></a>
+						<?}?></div></td>
+						<?}?>
+						<?if($this->Data['options']['controls']['copy']){?>
+						<td style="width:26px;text-align: center"><div style="width: 26px;"><? if($this->Data['options']['controls']['copy']){ ?>
+							<a href="<?= sprintf($this->Data['options']['controls']['copy'], $id) ?>" style="margin-right: 10px" title="Copy"><img src="<?= $this->Src ?>images/copy.png" alt="Copy" /></a>
+						<? } ?></div></td>
+						<?}?>
+						<?if($this->Data['clubs']){?>
+						<td style="width:26px;text-align: center"><div style="width: 26px;"><? if($this->Data['options']['controls']['edit']){ ?>
+							<a href="<?= sprintf($this->Data['options']['controls']['regatta'], $id) ?>" title="Regattas"><img src="<?= $this->Src ?>images/boat.png" alt="Regattas" /></a>
+						<? } ?></div></td>
+						<?}?>
+						<td style="width:26px;text-align: center"><div style="width: 26px;"><? if($this->Data['options']['controls']['edit']){ ?>
+							<a href="<?= sprintf($this->Data['options']['controls']['edit'], $id) ?>" title="Edit"><img src="<?= $this->Src ?>images/edit.gif" alt="Edit" /></a>
+						<? } ?></div></td>
+						
+						<td style="width:26px;text-align: center"><div style="width: 26px;"><? if($this->Data['options']['controls']['remove']){ ?>
+							<a style="margin-left: 15px;" href="<?= sprintf($this->Data['options']['controls']['remove'], $id) ?>" onclick="return DeleteRow()" class="deleteBtn" title="Delete"><img src="<?= $this->Src ?>images/remove.gif" alt="Delete" /></a>
+						<? } ?>	</div></td>
+						
+						
+						
+	</tr></table>					
+						
+						
+						</td>
+				<? } ?>
+			</tr>
+			
+		<? } ?>
+		<? if($this->Data['options']['multiply']){?>
+			<tr>
+				<th colspan="<?=$count?>">
+					<table cellpadding="2" cellspacing="2">
+						<tr>
+							<td>
+								С отмеченными:
+							</td>
+							<td>
+								<select id="MutliplySelect" name="Event">
+									<option selected>--Действие--</option>
+									<?foreach($this->Data['options']['multiply_events'] as $el => $value){?>
+										<option value="<?=$el?>"><?=$value?></option>
+									<?}?>
+								</select>
+							
+							</td>
+							<td>
+								<input type="submit"  id="ConfirmForm" value="Применить" />
+							</td>
+						</tr>
+					</table>
+				</th>
+			</tr>
+		<?}?>
+	</table>
+</div>
+<? if($this->Data['options']['multiply1']){?>
+</form>
+<?}?>

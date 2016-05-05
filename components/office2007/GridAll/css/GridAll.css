@@ -1,0 +1,115 @@
+.Grid {
+	float: left;
+	width: 100%;
+}
+
+.Grid TABLE {
+	width: 100%;
+	font-size: 12px;
+	font-weight: normal;
+	font-family: Arial, Helvetica, sans-serif,Verdana, Geneva;
+	color: #2B5199;
+}
+
+.Grid TABLE TH {
+	color: #00156E;
+	border-bottom: 1px solid #C0C0C0;
+	border-right: 1px solid #9EB6CE;
+	background: #FFFFFF url("../images/title-bg.gif") repeat-x left bottom;
+	padding: 3px 10px 4px 10px;
+	text-align: left;
+}
+
+.Grid TABLE TD {
+	border-bottom: 1px solid #C0C0C0;
+	border-right: 1px solid #C0C0C0;
+	padding: 3px 10px 4px 10px;
+	vertical-align: middle;
+	width: auto;
+}
+
+.Grid TABLE .min-width {
+	width: 1%;
+}
+
+.Grid TABLE .ta-center {
+	text-align: center;
+}
+
+.Grid TABLE TD.controls {
+	text-align: center;
+}
+
+.Grid TABLE TD.controls A {
+	margin: 0 5px;
+}
+
+.down-arrow{
+	float: right;
+}
+
+.down-arrow{
+	float: right;
+}
+
+.up-arrow{
+	float: left;
+}
+
+.Grid TABLE TH TABLE{
+	width: 200px;
+}
+.Grid TABLE TH TD,
+.Grid TABLE TD TD{
+	border: none;
+	width: 1%;
+	white-space:nowrap;
+}
+.Grid TABLE TR:HOVER TH TD,
+.Grid TABLE TR:HOVER TD TD{
+	background: none;
+}
+.Grid TABLE TR:HOVER TD{
+	background: #FFD595;
+}
+
+.Grid TABLE TR:HOVER TD.row1{
+	background-color: #FFD595;
+}
+.Grid TABLE TR TD.row1{
+	background-color: #EBEBEB
+}
+.Grid TABLE .attachSpan{
+	position: relative;
+	z-index: 5;
+}
+.Grid TABLE .attachSpan:hover {
+z-index: 6;
+}
+.Grid TABLE .attachSpan:hover .attach{
+	display: block;
+}
+.Grid TABLE .attach li{
+	padding: 5px 2px;
+}
+.Grid TABLE .attach li a{
+	background: url("../images/attach-small.png") no-repeat left center;
+	padding-left: 16px;
+}
+
+.Grid TABLE .attach{
+	display: none;
+	padding: 2px 0;
+	position: absolute;
+	text-align: left;
+	background: #EBEBEB;
+	border:1px solid #CCCCCC;
+	
+}
+
+.ajaxChange{
+	width: 80px;
+	padding: 4px;
+	text-align: center;
+	border:1px solid #22517e;
+}

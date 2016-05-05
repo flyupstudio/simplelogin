@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Author" content="Development by FlyUpStudio" />
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<title><?= $this->Title ?></title>
+<link rel="shortcut icon" href="/public/images/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/public/css/auth.css" media="screen" />
+<!--[if lt IE 7]>
+<style type="text/css">
+
+*.png-fix { behavior: url("/public/htc/iepngfix.htc") }
+</style>
+<![endif]-->
+<!--[if IE 7]>
+<style type="text/css">
+
+.login-container .login-form BUTTON {
+	padding-bottom: 4px;
+}
+</style>
+<![endif]-->
+</head>
+<body>
+	<div class="login-container png-fix <?= $this->Error ? 'lc-error' : '' ?>"><div class="lc-content png-fix">
+		<div class="login-form">
+			
+			<form method="post" action="">
+				<table cellpadding="0" border="0" cellspacing="0">
+					<tr>
+						<td><h1>Login</h1></td>
+						<td class="error">
+						<? if($this->Error){ ?>
+													<?= $this->Error ?>
+						
+					<? }else{ ?>
+					&nbsp;
+					<?}?>
+						</td>
+					</tr>
+					
+					
+					<tr>
+						<td><label for="username">Login:</label></td>
+						<td><input class="input-text" onkeypress="this.className='selected'" onfocus="this.className='selected'" onmouseout="this.className='input-text'"   type="text" name="username" id="username" /></td>
+					</tr>
+					<tr>
+						<td><label for="password">Password:</label></td>
+						<td><input class="input-text" onkeypress="this.className='selected'"  onfocus="this.className='selected'" onmouseout="this.className='input-text'" type="password" name="password" id="password" /></td>
+					</tr>
+					<tr>
+						<td><label for="remember_me">Запомнить меня:</label></td>
+						<td><input class="check" type="checkbox" name="remember_me" id="remember_me" value="1" /></td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button type="submit">Enter</button>
+								<input type="hidden" name="redirect" value="<?=$this->EncodeUrlParam($this->GetConfigParam('site_url').'/')?>" />
+								<input type="hidden" name="Event" value="Login" />
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div></div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style type="text/css">
+	*{
+		font-family: Tahoma;
+		font-size: 12px;	
+	}
+</style>
+</head>
+<body>
+	ФИО: <?= $name  ?><br />
+	E-mail: <?= $email ?><br />
+	<? if($phone) { ?>
+		Телефон: <?= $phone ?><br />
+	<? } ?>
+	<br />
+	Сообщение: <?= html_entity_decode($message)?><br /><br />
+	Дата отправки: <?=date("d-m-Y H:i",time())?>
+</body>
+</html>

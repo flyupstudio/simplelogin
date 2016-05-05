@@ -1,0 +1,52 @@
+.Grid {
+	float: left;
+	width: 100%;
+}
+
+.Grid TABLE {
+	width: 100%;
+	font-size: 12px;
+	font-weight: normal;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: #2B5199;
+}
+
+.Grid TABLE TH {
+	color: #00156E;
+	border-bottom: 1px solid #C0C0C0;
+	border-right: 1px solid #9EB6CE;
+	background: #FFFFFF url("../images/title-bg.gif") repeat-x left bottom;
+	padding: 3px 10px 4px 10px;
+	font-weight: bold;
+	text-align: left;
+}
+
+.Grid TABLE TD {
+	border-bottom: 1px solid #C0C0C0;
+	border-right: 1px solid #C0C0C0;
+	padding: 3px 10px 4px 10px;
+	vertical-align: middle;
+	width: auto;
+}
+.Grid table TH TD{
+	border: none;
+	padding: 0;
+}
+.Grid table TABLE{
+	width: auto;
+}
+.Grid TABLE .min-width {
+	width: 1%;
+}
+
+.Grid TABLE .ta-center {
+	text-align: center;
+}
+
+.Grid TABLE TD.controls {
+	text-align: center;
+}
+
+.Grid TABLE TD.controls A {
+	margin: 0 5px;
+}

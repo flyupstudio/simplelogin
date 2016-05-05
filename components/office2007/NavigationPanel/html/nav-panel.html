@@ -1,0 +1,42 @@
+<script type="text/javascript">
+	var np_expanded = <?= $this->ExpandedId ?>
+</script>
+
+<div class="navigation-container" id="navigation-container">
+	<div class="row navigation" id="navigation">
+		<div class="row n-title">
+			<a class="n-close" id="n-close" href="#"><img src="<?= $this->Src ?>/images/close.jpg" alt="" /></a>
+			<h1>Панель навигации</h1>
+		</div>
+		
+		<?/*
+		<div class="row p-search">
+			<form action="">
+				<input type="image" class="btn" src="<?= $this->Src ?>/images/search.gif" alt="" />
+				<input type="text" class="input" value="Поиск..." title="Поиск..." id="n-search" />
+			</form>
+		</div>
+		*/?>
+		
+		<? if($this->Data['modules_sz']){ ?>
+			<div class="row p-menu" id="p-menu">
+				<? for($i = 0; $i < $this->Data['modules_sz']; $i++) { ?>
+					<h2><?= $this->Data['modules'][$i]['title'] ?></h2>
+					<div class="pm-sub">
+						<? if($this->Data['modules'][$i]['view']){ ?>
+							<a href="<?= $this->Data['modules'][$i]['href'] ?><?= $this->Data['modules'][$i]['view']['event'] ? '?Event='.$this->Data['modules'][$i]['view']['event'] : '' ?>"><?= $this->Data['modules'][$i]['view']['title'] ?></a>
+						<? } if($this->Data['modules'][$i]['new']){ ?>
+							<a href="<?= $this->Data['modules'][$i]['href'] ?><?= $this->Data['modules'][$i]['new']['event'] ? '?Event='.$this->Data['modules'][$i]['new']['event'] : '' ?>"><?= $this->Data['modules'][$i]['new']['title'] ?></a>
+						<? } ?>
+						<div class="pm-separator"></div>
+					</div>
+				<? } ?>
+			</div>
+		<? } ?>
+	</div>
+	
+	<div class="row np-collapsed-panel" id="np-collapsed-panel">
+		<div class="ncp-top"><a href="#" id="n-open"><img src="<?= $this->Src ?>images/open.gif" alt="" /></a></div>
+		<div class="npc-bottom" id="npc-bottom"></div>
+	</div>
+</div>

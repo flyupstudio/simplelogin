@@ -1,0 +1,112 @@
+<? if($this->Data['options']['multiply1']){?>
+<form action="" id="MultiplyConfirmForm" method="post">
+<?}?>
+<div class="Grid">
+	<table cellpadding="0" class="GridTable banners" cellspacing="0">
+		<tr>
+			<? $count = 0;?>
+			<? if($this->Data['options']['multiply']){?>
+			<th style="width: 20px;">
+				<input type="checkbox" class="MultiplyAllChecks" /><?$count++?>
+			</th>
+			<?}?>
+			<? if($this->Data['options']['row_numbers']){ ?>
+				<th>№</th><?$count++?>
+			<? } ?>
+			<? 	$s = 0;
+				foreach($this->Data['titles'] as $title){ ?>
+				<th style="text-align: center;">
+				
+					<?if($this->Data['options']['sortable'][$s]){?>
+						<a class="down-arrow" style="<?=(isset($_GET['direct']) && $_GET['direct'] != '' && $_GET['direct'] != 'ASC' ) &&( $this->Data['options']['sortable1'][$s] == $_GET['sort']) && $_GET['sort'] != '' ? 'border:1px solid #000; ':''?>" href="<?= $this->Data['options']['sortable'][$s]['down']?>" ><img src="/azone/public/images/arrow-down.gif"></a>
+						<a class="up-arrow" style="<?=(isset($_GET['direct']) && $_GET['direct'] != '' && $_GET['direct'] != 'DESC' ) && ($this->Data['options']['sortable1'][$s] == $_GET['sort']) && $_GET['sort'] != '' ? 'border:1px solid #000; ':''?>" href="<?= $this->Data['options']['sortable'][$s]['up']?>" ><img src="/azone/public/images/arrow-up.gif"></a>
+					<?}?>	
+					
+					<?= $title ?>
+					<?$count++?>
+				</th>
+				<? $s++; ?>
+			<? } ?>
+			<? if($this->Data['options']['sort']){ ?>
+				<th>Сортировка</th><?$count++?>
+			<? } ?>
+			<? if($this->Data['options']['controls']){ ?>
+				<th>Edit/Delete</th><?$count++?>
+			<? } ?>
+		</tr>
+		
+		<? 
+			$i = 0;
+			foreach($this->Data['rows'] as $id => $row)
+			{
+				$i++; 
+		?>
+			
+			<tr>
+				<? if($this->Data['options']['multiply']){?>
+					<td class="<?=$i % 2 ? 'row1':''?>">
+						<input type="checkbox" class="MultiplyOneItemChecks" name="ID[]" value="<?=$id?>" />
+					</td>
+				<?}?>
+				<? if($this->Data['options']['row_numbers']){ ?>
+					<td class="min-width ta-center <?=$i % 2 ? 'row1':''?>">
+						<?if($this->Data['options']['page'] > 1){?>
+							<?= $i?>
+						<?}else{?>
+							<?= $i?>
+						<?}?>	
+					</td>
+				<? } ?>
+				<? foreach($row as $ii => $cell){ ?>
+					<td <?=$ii==1?'style="wudth:200px"':''?> class="<?=$i % 2 ? 'row1':''?>"><?= $cell ?></td>
+				<? } ?>
+				
+				<? if($this->Data['options']['sort']){ ?>
+					<td class="min-width ta-center <?=$i % 2 ? 'row1':''?>">
+							<a href="<?= '?Event=SortDown&id='.$id.'&page='.$this->Data['options']['page']?>" title="Вниз"><img src="<?= $this->Src ?>images/down.png" alt="Вниз" /></a>
+							<a href="<?= '?Event=SortUp&id='.$id.'&page='.$this->Data['options']['page']?>" title="Вверх"><img src="<?= $this->Src ?>images/up.png" alt="Вверх" /></a>
+					</td>
+				<? } ?>
+				
+				<? if($this->Data['options']['controls']){ ?>
+					<td class="<?=$i % 2 ? 'row1':''?>" class="controls min-width">
+                            <? if($this->Data['options']['controls']['remove']){ ?>
+							Will apply <br />changes<br />after "Save"<br />button click<br /><a style="margin-left: 15px;" href="<?= sprintf($this->Data['options']['controls']['remove'], $id) ?>" data-id="<?=$id?>" class="deleteBtn" title="Delete"><img src="<?= $this->Src ?>images/remove.gif" alt="Delete" /></a>
+						<? } ?>			
+						
+						
+						</td>
+				<? } ?>
+			</tr>
+			
+		<? } ?>
+		<? if($this->Data['options']['multiply']){?>
+			<tr>
+				<th colspan="<?=$count?>">
+					<table cellpadding="2" cellspacing="2">
+						<tr>
+							<td>
+								С отмеченными:
+							</td>
+							<td>
+								<select id="MutliplySelect" name="Event">
+									<option selected>--Действие--</option>
+									<?foreach($this->Data['options']['multiply_events'] as $el => $value){?>
+										<option value="<?=$el?>"><?=$value?></option>
+									<?}?>
+								</select>
+							
+							</td>
+							<td>
+								<input type="submit"  id="ConfirmForm" value="Применить" />
+							</td>
+						</tr>
+					</table>
+				</th>
+			</tr>
+		<?}?>
+	</table>
+</div>
+<? if($this->Data['options']['multiply1']){?>
+</form>
+<?}?>
